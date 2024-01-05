@@ -80,6 +80,7 @@ module.exports.login_post = async (req, res) => {
 
     if (user) {
       const token = createToken(user._id);
+      console.log(token);
 
       res.cookie("jwt", token, {
         httpOnly: true,
