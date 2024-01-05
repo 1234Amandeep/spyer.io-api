@@ -81,7 +81,11 @@ module.exports.login_post = async (req, res) => {
     if (user) {
       const token = createToken(user._id);
 
-      res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+      res.cookie("jwt", token, {
+        httpOnly: true,
+        maxAge: maxAge * 1000,
+        secure: true,
+      });
       res
         .status(200)
         .json({ _id: user._id, email: user.email, favList: user.favList });
