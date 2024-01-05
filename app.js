@@ -8,6 +8,8 @@ const cookieParser = require("cookie-parser");
 const authMiddleware = require("./middleware/authMiddleware");
 require("dotenv").config();
 
+mongoose.set("strictQuery", true);
+
 console.log(process.env.DB_URI);
 
 const app = express();
