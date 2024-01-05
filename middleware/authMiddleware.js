@@ -10,7 +10,7 @@ module.exports.checkUser = async (req, res, next) => {
     jwt.verify(token, "spyer.io", async (err, decodedToken) => {
       if (err) {
         // token exist but not valid so user is not logged in
-        res.status(200).json({ user: "not a valid token" });
+        res.status(200).json({ user: null, msg: "token is invalid" });
         next();
       } else {
         // token exist and its valid so user is logged in
@@ -23,7 +23,7 @@ module.exports.checkUser = async (req, res, next) => {
     });
   } else {
     // token does'nt exist so user is not logged in
-    res.status(200).json({ user: "token does'nt exist" });
+    res.status(200).json({ user: null, msg: "token does not exists" });
     next();
   }
 };
