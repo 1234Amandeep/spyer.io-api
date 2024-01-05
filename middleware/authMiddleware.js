@@ -4,6 +4,7 @@ const userModel = require("../models/user");
 module.exports.checkUser = async (req, res, next) => {
   // res.send("hey");
   const token = req.cookies.jwt;
+  console.log("token inside middleware: ", token);
 
   if (token) {
     // verifying jwt token

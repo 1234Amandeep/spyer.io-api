@@ -51,7 +51,7 @@ module.exports.signup_post = async (req, res) => {
     // creating token
     const token = createToken(user._id);
 
-    console.log(token);
+    // console.log(token);
 
     // setting jwt into cookies
     res.cookie("jwt", token, {
