@@ -18,7 +18,7 @@ console.log(process.env.DB_URI);
 const app = express();
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: "https://spyer-io.web.app/",
   credentials: true,
   optionsSuccessStatus: 200,
 };
