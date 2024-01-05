@@ -101,6 +101,11 @@ module.exports.login_post = async (req, res) => {
 
 module.exports.logout_get = (req, res) => {
   console.log("inside logout");
-  res.cookie("jwt", "", { maxAge: 1 });
+  res.cookie("jwt", "", {
+    httpOnly: true,
+    maxAge: 1,
+    sameSite: "None",
+    secure: true,
+  });
   res.redirect("/");
 };
