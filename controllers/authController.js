@@ -85,7 +85,7 @@ module.exports.login_post = async (req, res) => {
       res.cookie("jwt", token, {
         httpOnly: true,
         maxAge: maxAge * 1000,
-        secure: true,
+        secure: process.env.NODE_ENV === "production",
       });
       res
         .status(200)
