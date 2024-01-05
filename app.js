@@ -18,7 +18,7 @@ console.log(process.env.DB_URI);
 const app = express();
 
 const corsOptions = {
-  origin: "https://spyer-io.web.app/",
+  origin: "*",
   credentials: true,
   optionsSuccessStatus: 200,
 };
