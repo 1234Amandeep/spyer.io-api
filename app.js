@@ -10,6 +10,9 @@ require("dotenv").config();
 
 mongoose.set("strictQuery", true);
 
+const db_uri =
+  "mongodb+srv://1234amandeep:ilovefootball%401234@spyer.dtt7kqo.mongodb.net/auth?retryWrites=true&w=majority";
+
 console.log(process.env.DB_URI);
 
 const app = express();
@@ -28,7 +31,7 @@ app.use(fetchRouter);
 app.use(authRouter);
 
 mongoose
-  .connect(process.env.DB_URI)
+  .connect(db_uri)
   .then(() => {
     app.listen("4000", () => {
       console.log("After connecting to auth db, listening at port 4000...");
